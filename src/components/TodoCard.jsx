@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from "react-redux";
 import { toggleTask } from "../reducers/todo";
+import DeleteButton from "./DeleteButton";
 
 const TodoCard = ({ id, title, context, isComplete, toggleTask }) => {
     return (
@@ -27,6 +28,7 @@ const TodoCard = ({ id, title, context, isComplete, toggleTask }) => {
                         {context}
                     </span>
                 </div>
+                <DeleteButton id={id} />
             </div>
         </div>
     )

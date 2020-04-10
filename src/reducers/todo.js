@@ -42,7 +42,10 @@ export default function rootReducer(state = initialState, action = {}) {
             }
         case DELETE:
             return {
-                ...state
+                ...state,
+                todos: state.todos.filter(todo =>
+                    todo.id !== action.payload.id
+                )
             }
         case COMPLETE:
             return {
@@ -66,8 +69,8 @@ export function editTask() {
     return { type: EDIT }
 }
 
-export function deleteTask() {
-    return { type: DELETE }
+export function deleteTask(id) {
+    return { type: DELETE, payload: { id } }
 }
 
 export function toggleTask(id, isComplete) {
