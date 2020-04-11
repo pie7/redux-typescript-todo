@@ -11,15 +11,26 @@ const TodoContainer = ({todos, toggleTask}) => {
             <header className="todo__title">
                 ToDoList
             </header>
-            {todos &&
-                todos.map(todo =>
-                    <TodoCard
-                        key={todo.id}
-                        id={todo.id}
-                    />
-                )
-            }
-            <AddButton />
+            <div className="input__wrap">
+                <input
+                    type="text"
+                    className="todo__input"
+                    placeholder="What Needs Be Done?"
+                    value={currentInput}
+                    onChange={(e) => editTask(e)}
+                    onKeyDown={(e) => addTask(e, currentInput)}
+                />
+            </div>
+            <div className="todos__wrap">
+                {todos &&
+                    todos.map(todo =>
+                        <TodoCard
+                            key={todo.id}
+                            id={todo.id}
+                        />
+                    )
+                }
+            </div>
         </div>
     )
 }
