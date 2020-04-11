@@ -1,11 +1,14 @@
 @import-normalize;
 
 .todo__container {
+    position: relative;
     width: 325px;
+    min-height: 475px;
+    max-height: 75vh;
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
-    // padding: 20px;
+    margin-bottom: 10px;
 }
 
 .todo {
@@ -14,13 +17,15 @@
         color: #fff;
         padding: 20px;
         border-radius: 10px 10px 0 0;
+        margin-bottom: 15px;
     }
 
     &__card {
         display: flex;
+        align-items: center;
+        min-height: 96px;
         background-color: #fff;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
-        margin-bottom: 10px;
         justify-content: space-around;
 
         .todo {
@@ -35,11 +40,12 @@
     &__info {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
         padding: 10px;
 
         .info {
             &__title {
-                font-weight: 700;
                 margin-bottom: 5px;
             }
 
@@ -54,8 +60,7 @@
         height: 56px;
         font-size: 28px;
         overflow: hidden;
-        position: relative;
-        margin: auto;
+        margin: 10px;
         padding: 0;
         line-height: normal;
         border-radius: 50%;
@@ -64,13 +69,11 @@
         border: none;
         cursor: pointer;
         vertical-align: middle;
+        float: right;
 
         &--add {
             color: #fff;
             background-color: #1976d2;
-            float: right;
-            right: 10px;
-            bottom: 10px;
         }
     }
 
@@ -157,8 +160,10 @@
 }
 
 .card__container {
-    padding: 20px 10px;
-}.input__wrap {
+    margin: 0 10px;
+    margin-bottom: 15px;
+}
+
 .input__wrap {
     position: relative;
     display: flex;
