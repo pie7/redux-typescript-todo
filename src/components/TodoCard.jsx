@@ -24,9 +24,6 @@ const TodoCard = ({ id, title, context, isComplete, toggleTask }) => {
                     <span className="info__title">
                         {title}
                     </span>
-                    <span className="info__context">
-                        {context}
-                    </span>
                 </div>
                 <DeleteButton id={id} />
             </div>
