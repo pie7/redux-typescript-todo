@@ -33,7 +33,8 @@ export default function rootReducer(state = initialState, action = {}) {
             }
         case EDIT:
             return {
-                ...state
+                ...state,
+                currentInput: action.payload.currentInput
             }
         case DELETE:
             return {
@@ -60,8 +61,8 @@ export function addTask() {
     return { type: ADD }
 }
 
-export function editTask() {
-    return { type: EDIT }
+export function editTask(e) {
+    return { type: EDIT, payload: { currentInput: e.target.value } }
 }
 
 export function deleteTask(id) {

@@ -26,15 +26,15 @@ const TodoContainer = ({todos, toggleTask}) => {
 
 const mapStateToProps = (state) => {
     return {
-        todos: state.todos
+        todos: state.todos,
+        currentInput: state.currentInput
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addTask: () => dispatch(addTask),
-        editTask: () => dispatch(editTask),
-        deleteTask: () => dispatch(deleteTask),
+        editTask: (e) => dispatch(editTask(e)),
     }
 }
 
