@@ -8,7 +8,7 @@ const DeleteButton = ({ deleteTask, id }) => {
             <span
                 className="delete__icon"
                 onClick={() => deleteTask(id)}>
-                x
+                    ✖
             </span>
         </div>
     )
