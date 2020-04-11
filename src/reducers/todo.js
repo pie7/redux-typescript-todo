@@ -18,14 +18,9 @@ const initialState = {
             "title": "Going Home2",
             "context": "driving and go highway 001",
             "isComplete": false
-        },
-        {
-            "id":3,
-            "title": "Going Home3",
-            "context": "driving and go highway 033",
-            "isComplete": false
-        },
-    ]
+        }
+    ],
+    "currentInput": ""
 }
 
 // Reducer
