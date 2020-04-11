@@ -21,7 +21,7 @@ const TodoCard = ({ id, title, context, isComplete, toggleTask }) => {
                     </div>
                 </div>
                 <div className="todo__info">
-                    <span className="info__title">
+                    <span className={`info__title${isComplete ? "--complete" : " "}`}>
                         {title}
                     </span>
                 </div>
