@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { addTask, editTask, deleteTask,  toggleTask} from "../reducers/todo";
+import { editTask, addTask } from "../reducers/todo";
 import TodoCard from "./TodoCard";
-import AddButton from "./AddButton";
 import "./todo.scss";
 
-const TodoContainer = ({todos, toggleTask}) => {
+const TodoContainer = ({todos, editTask, currentInput, addTask}) => {
     return (
         <div className="todo__container">
             <header className="todo__title">
@@ -44,8 +43,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTask: () => dispatch(addTask),
         editTask: (e) => dispatch(editTask(e)),
+        addTask: (e, currentInput) => dispatch(addTask(e, currentInput))
     }
 }
 

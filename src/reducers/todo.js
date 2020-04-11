@@ -27,9 +27,16 @@ const initialState = {
 export default function rootReducer(state = initialState, action = {}) {
     switch (action.type) {
         case ADD:
+            const currentInputTodo = {
+                id: state.todos.length + 1,
+                title: action.payload.currentInput,
+                context: action.payload.currentInput,
+                isComplete: false
+            }
             return {
                 ...state,
-                todos: state.todos.concat(action.payload)
+                todos: state.todos.concat(currentInputTodo),
+                currentInput: ""
             }
         case EDIT:
             return {
@@ -57,8 +64,10 @@ export default function rootReducer(state = initialState, action = {}) {
 }
 
 // Action Creators
-export function addTask() {
-    return { type: ADD }
+export function addTask(e, currentInput) {
+    return e.key === 'Enter'
+        ? { type: ADD, payload: { currentInput } }
+        : { type: null }
 }
 
 export function editTask(e) {
