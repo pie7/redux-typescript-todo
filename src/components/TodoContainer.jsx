@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { editTask, addTask } from "../reducers/todo";
 import TodoCard from "./TodoCard";
+import Navigation from "./Navigation";
 import "./todo.scss";
 
 const TodoContainer = ({todos, editTask, currentInput, addTask}) => {
@@ -10,6 +11,7 @@ const TodoContainer = ({todos, editTask, currentInput, addTask}) => {
             <header className="todo__title">
                 ToDoList
             </header>
+            <Navigation />
             <div className="input__wrap">
                 <input
                     type="text"
