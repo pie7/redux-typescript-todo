@@ -81,3 +81,14 @@ export function deleteTask(id) {
 export function toggleTask(id, isComplete) {
     return { type: COMPLETE, payload: { id, isComplete } }
 }
+
+export const showStatus = (todos, status) => {
+    switch (status) {
+        case 'started':
+            return todos && todos.filter(todo => todo.isComplete === false)
+        case 'completed':
+            return todos && todos.filter(todo => todo.isComplete === true)
+        default:
+            return todos
+    }
+}

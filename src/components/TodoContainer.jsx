@@ -1,6 +1,7 @@
 import React from 'react';
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { editTask, addTask } from "../reducers/todo";
+import { editTask, addTask, showStatus } from "../reducers/todo";
 import TodoCard from "./TodoCard";
 import Navigation from "./Navigation";
 import "./todo.scss";
@@ -22,16 +23,17 @@ const TodoContainer = ({todos, editTask, currentInput, addTask}) => {
                     onKeyDown={(e) => addTask(e, currentInput)}
                 />
             </div>
-            <div className="todos__wrap">
-                {todos &&
-                    todos.map(todo =>
+            <Route path="/:status" render={
+                ({ match }) => {
+                    const filterTodos = showStatus(todos, match.params.status)
+                    return filterTodos && filterTodos.map(todo =>
                         <TodoCard
                             key={todo.id}
                             id={todo.id}
                         />
                     )
                 }
-            </div>
+            } />
         </div>
     )
 }
