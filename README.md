@@ -4,9 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Todo App
 
+
 ### `Features`
 
 - ADD/EDIT/DELETE Task
+
 
 ### `Tools`
 
@@ -14,3 +16,39 @@ Todo App
     - React-Route
 - Redux
 - TypeScript
+
+
+### `Doc`
+
+```js
+import Header from './Header'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+title        | string   |
+
+```js
+import Navigation from './Navigation'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+links        | array    |
+
+```js
+import TaskInput from './TaskInput'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+currentInput | string   |
+keyinTask    | func     |
+addTask      | func     |
+
+```js
+import TodoCard from './TodoCard'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+id           | number   |
+title        | string   |
+isComplete   | bool     |
+toggleTask   | func     |
