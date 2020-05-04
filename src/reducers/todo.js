@@ -5,6 +5,37 @@ const DELETE = 'redux-typescript/todo/DELETE'
 const COMPLETE = 'redux-typescript/todo/COMPLETE'
 
 
+// Action Creators
+export function addTask(e, currentInput) {
+    return e.key === 'Enter'
+        ? { type: ADD, payload: { currentInput } }
+        : { type: null }
+}
+
+export function editTask(e) {
+    return { type: EDIT, payload: { currentInput: e.target.value } }
+}
+
+export function deleteTask(id) {
+    return { type: DELETE, payload: { id } }
+}
+
+export function toggleTask(id, isComplete) {
+    return { type: COMPLETE, payload: { id, isComplete } }
+}
+
+export const showStatus = (todos, status) => {
+    switch (status) {
+        case 'started':
+            return todos && todos.filter(todo => todo.isComplete === false)
+        case 'completed':
+            return todos && todos.filter(todo => todo.isComplete === true)
+        default:
+            return todos
+    }
+}
+
+
 const initialState = {
     "todos": [
         {
@@ -60,35 +91,5 @@ export default function rootReducer(state = initialState, action = {}) {
                 )
             }
         default: return state
-    }
-}
-
-// Action Creators
-export function addTask(e, currentInput) {
-    return e.key === 'Enter'
-        ? { type: ADD, payload: { currentInput } }
-        : { type: null }
-}
-
-export function editTask(e) {
-    return { type: EDIT, payload: { currentInput: e.target.value } }
-}
-
-export function deleteTask(id) {
-    return { type: DELETE, payload: { id } }
-}
-
-export function toggleTask(id, isComplete) {
-    return { type: COMPLETE, payload: { id, isComplete } }
-}
-
-export const showStatus = (todos, status) => {
-    switch (status) {
-        case 'started':
-            return todos && todos.filter(todo => todo.isComplete === false)
-        case 'completed':
-            return todos && todos.filter(todo => todo.isComplete === true)
-        default:
-            return todos
     }
 }
