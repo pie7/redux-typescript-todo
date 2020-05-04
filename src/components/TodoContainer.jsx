@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { editTask, addTask, showStatus } from "../reducers/todo";
 import TodoCard from "./TodoCard";
@@ -7,6 +8,7 @@ import Navigation from "./Navigation";
 import "./todo.scss";
 
 const TodoContainer = ({todos, editTask, currentInput, addTask}) => {
+const TodoContainer = ({ todos = [] }) => {
     return (
         <div className="todo__container">
             <header className="todo__title">
@@ -50,6 +52,8 @@ const mapDispatchToProps = (dispatch) => {
         editTask: (e) => dispatch(editTask(e)),
         addTask: (e, currentInput) => dispatch(addTask(e, currentInput))
     }
+TodoContainer.propTypes = {
+    todos: PropTypes.array.isRequired
 }
 
 export default connect(
