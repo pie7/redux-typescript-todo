@@ -1,6 +1,6 @@
 // Actions
 const ADD = 'redux-typescript/todo/ADD'
-const EDIT = 'redux-typescript/todo/EDIT'
+const KEYIN_INPUT = 'redux-typescript/todo/KEYIN_INPUT'
 const DELETE = 'redux-typescript/todo/DELETE'
 const COMPLETE = 'redux-typescript/todo/COMPLETE'
 
@@ -12,8 +12,8 @@ export function addTask(e, currentInput) {
         : { type: null }
 }
 
-export function editTask(e) {
-    return { type: EDIT, payload: { currentInput: e.target.value } }
+export function keyinInput(e) {
+    return { type: KEYIN_INPUT, payload: { currentInput: e.target.value } }
 }
 
 export function deleteTask(id) {
@@ -69,7 +69,7 @@ export default function rootReducer(state = initialState, action = {}) {
                 todos: state.todos.concat(currentInputTodo),
                 currentInput: ""
             }
-        case EDIT:
+        case KEYIN_INPUT:
             return {
                 ...state,
                 currentInput: action.payload.currentInput

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { editTask, addTask } from "../reducers/todo";
+import { keyinInput, addTask } from "../reducers/todo";
 
-const TaskInput = ({ currentInput = '', editTask = null, addTask = null }) => {
+const TaskInput = ({ currentInput = '', keyinInput = null, addTask = null }) => {
     return (
         <div className="input__wrap">
             <input
@@ -11,7 +11,7 @@ const TaskInput = ({ currentInput = '', editTask = null, addTask = null }) => {
                 className="todo__input"
                 placeholder="What Needs Be Done?"
                 value={currentInput}
-                onChange={(e) => editTask(e)}
+                onChange={(e) => keyinInput(e)}
                 onKeyDown={(e) => addTask(e, currentInput)}
             />
         </div>
@@ -20,7 +20,7 @@ const TaskInput = ({ currentInput = '', editTask = null, addTask = null }) => {
 
 TaskInput.propTypes = {
     currentInput: PropTypes.string.isRequired,
-    editTask: PropTypes.func.isRequired,
+    keyinInput: PropTypes.func.isRequired,
     addTask: PropTypes.func.isRequired
 }
 
@@ -29,7 +29,7 @@ export default connect(
         currentInput: state.currentInput
     }),
     dispatch => ({
-        editTask: (e) => dispatch(editTask(e)),
+        keyinInput: (e) => dispatch(keyinInput(e)),
         addTask: (e, currentInput) => dispatch(addTask(e, currentInput))
     })
 )(TaskInput)
