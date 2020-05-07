@@ -5,8 +5,9 @@ import App from './App';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from './reducers/todo';
+import { StoreState } from "./types/index";
 
-const store = createStore(rootReducer)
+const store = createStore<StoreState, any, any, any>(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,5 +15,5 @@ ReactDOM.render(
       <App />
     </Provider>,
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') as HTMLElement
 );

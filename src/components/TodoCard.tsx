@@ -3,8 +3,21 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { toggleTask } from "../reducers/todo";
 import DeleteButton from "./DeleteButton";
+import { StoreState, Todo, TodoState } from "../types/index";
 
-const TodoCard = ({ id = 0, title = '', isComplete = false, toggleTask = null }) => {
+interface Props {
+    id: number;
+    title: string;
+    isComplete: boolean;
+    toggleTask: (id: number, isComplete: boolean) => void
+}
+
+const TodoCard = ({
+    id = 0,
+    title = '',
+    isComplete = false,
+    toggleTask
+}: Props) => {
     return (
         <div className="card__container">
             <div className="todo__card">
@@ -39,7 +52,7 @@ TodoCard.propTypes = {
 }
 
 export default connect(
-    (state, ownProps) => {
+    (state: TodoState, ownProps: { id: number }): { title: string, isComplete: boolean} => {
         const todo = state.todos.filter(todo => todo.id === ownProps.id)
         const [todoItems] = todo
 
@@ -48,9 +61,9 @@ export default connect(
             isComplete: todoItems.isComplete
         }
     },
-    (dispatch) => {
+    (dispatch)  => {
         return {
-            toggleTask: (id, isComplete) => dispatch(toggleTask(id, isComplete)),
+            toggleTask: (id: number, isComplete: boolean) => dispatch(toggleTask(id, isComplete)),
         }
     }
 )(TodoCard)

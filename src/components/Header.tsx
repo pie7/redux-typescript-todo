@@ -1,12 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Header = ({ title = '' }) => {
+interface Props {
+    title: string;
+}
+
+const Header: React.FC<Props> = ({ title }) => {
     return (
         <header className="todo__title">
             {title}
         </header>
     )
+}
+
+Header.defaultProps = {
+    title: ''
 }
 
 Header.propTypes = {

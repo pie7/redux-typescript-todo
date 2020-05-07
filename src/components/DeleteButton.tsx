@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteTask } from "../reducers/todo";
 
-const DeleteButton = ({ deleteTask = null, id = 0 }) => {
+interface Props {
+    id: number;
+    deleteTask: (id: number) => void;
+}
+
+
+const DeleteButton: React.FC<Props> = ({ deleteTask, id = 0 }) => {
     return (
         <div className="todo__delete">
             <span
@@ -22,7 +28,7 @@ DeleteButton.propTypes = {
 
 export default connect(
     null,
-    (dispatch) => ({
-        deleteTask: (id) => dispatch(deleteTask(id))
+    (dispatch: any) => ({
+        deleteTask: (id: number) => dispatch(deleteTask(id))
     })
 )(DeleteButton)

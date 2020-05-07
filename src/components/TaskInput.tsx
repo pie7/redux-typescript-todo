@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { keyinInput, addTask } from "../reducers/todo";
 
-const TaskInput = ({ currentInput = '', keyinInput = null, addTask = null }) => {
+interface Props {
+    currentInput: string,
+    addTask: (e: any, currentInput: string) => void,
+    keyinInput: any
+}
+
+const TaskInput: React.FC<Props> = ({ currentInput = '', keyinInput = null, addTask }) => {
     return (
         <div className="input__wrap">
             <input
@@ -25,11 +31,11 @@ TaskInput.propTypes = {
 }
 
 export default connect(
-    state => ({
+    (state: Props) => ({
         currentInput: state.currentInput
     }),
-    dispatch => ({
-        keyinInput: (e) => dispatch(keyinInput(e)),
-        addTask: (e, currentInput) => dispatch(addTask(e, currentInput))
+    (dispatch: any) => ({
+        keyinInput: (e: any) => dispatch(keyinInput(e)),
+        addTask: (e: any, currentInput: string) => dispatch(addTask(e, currentInput))
     })
 )(TaskInput)
