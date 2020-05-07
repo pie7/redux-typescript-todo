@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { keyinInput, addTask } from "../reducers/todo";
+import styles from "./TaskInput.module.scss";
 
 interface Props {
     currentInput: string,
@@ -11,10 +12,10 @@ interface Props {
 
 const TaskInput: React.FC<Props> = ({ currentInput = '', keyinInput = null, addTask }) => {
     return (
-        <div className="input__wrap">
+        <div className={styles.input__wrap}>
             <input
                 type="text"
-                className="todo__input"
+                className={styles.__input}
                 placeholder="What Needs Be Done?"
                 value={currentInput}
                 onChange={(e) => keyinInput(e)}

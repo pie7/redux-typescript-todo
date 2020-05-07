@@ -8,7 +8,7 @@ import TaskInput from "./TaskInput";
 import TodoCard from "./TodoCard";
 import Navigation from "./Navigation";
 import { StoreState, Todo, TodoState } from "../types/index";
-import "./todo.scss";
+import styles from "./TodoContainer.module.scss";
 
 interface Props {
     todos?: Todo[];
@@ -16,20 +16,17 @@ interface Props {
 
 const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
     return (
-        <div className="todo__container">
+        <div className={styles.__container}>
             <Header title={'ToDoList'} />
             <Navigation />
             <TaskInput />
-            <div className="card__wrap">
+            <div className={styles.__wrap}>
                 <Switch>
                     <Route exact path="/">
                         {todos && todos.map((todo) =>
                             <TodoCard
                                 key={todo.id}
                                 id={todo.id}
-                                title={''}
-                                isComplete={false}
-                                toggleTask={() => {}}
                             />
                         )}
                     </Route>
@@ -40,9 +37,6 @@ const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
                                 <TodoCard
                                     key={todo.id}
                                     id={todo.id}
-                                    title={''}
-                                    isComplete={false}
-                                    toggleTask={() => {}}
                                 />
                             )
                         }

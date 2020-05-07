@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteTask } from "../reducers/todo";
+import styles from "./DeleteButton.module.scss";
 
 interface Props {
     id: number;
@@ -11,9 +12,9 @@ interface Props {
 
 const DeleteButton: React.FC<Props> = ({ deleteTask, id = 0 }) => {
     return (
-        <div className="todo__delete">
+        <div className={styles.__delete}>
             <span
-                className="delete__icon"
+                className={styles.icon}
                 onClick={() => deleteTask(id)}>
                 ✖
             </span>

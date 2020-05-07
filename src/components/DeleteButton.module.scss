@@ -1,0 +1,16 @@
+.__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff5722;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    color: #fff;
+}
+
+.delete__icon {
+    font-size: 14px;
+}

@@ -4,25 +4,27 @@ import { connect } from "react-redux";
 import { toggleTask } from "../reducers/todo";
 import DeleteButton from "./DeleteButton";
 import { StoreState, Todo, TodoState } from "../types/index";
+import { Dispatch, AnyAction } from 'redux';
+import styles from "./TodoCard.module.scss";
 
 interface Props {
     id: number;
     title: string;
-    isComplete: boolean;
+    isComplete?: boolean;
     toggleTask: (id: number, isComplete: boolean) => void
 }
 
-const TodoCard = ({
+const TodoCard: React.FC<Props>= ({
     id = 0,
     title = '',
     isComplete = false,
     toggleTask
-}: Props) => {
+}) => {
     return (
-        <div className="card__container">
-            <div className="todo__card">
-                <div className="todo__select">
-                    <div className="select__wrap">
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <div className={styles.__select}>
+                    <div className={styles.__wrap}>
                         <input
                             type="checkbox"
                             className="todo__checkbox"
@@ -33,8 +35,8 @@ const TodoCard = ({
                         <label htmlFor={`checkbox--${id}`}></label>
                     </div>
                 </div>
-                <div className="todo__info">
-                    <span className={`info__title${isComplete ? "--complete" : " "}`}>
+                <div className={styles.info}>
+                    <span className={`${styles.info__title} ${isComplete ? `${styles['info--complete']}` : " "}`}>
                         {title}
                     </span>
                 </div>
@@ -47,7 +49,7 @@ const TodoCard = ({
 TodoCard.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    isComplete: PropTypes.bool.isRequired,
+    isComplete: PropTypes.bool,
     toggleTask: PropTypes.func.isRequired
 }
 
@@ -61,7 +63,7 @@ export default connect(
             isComplete: todoItems.isComplete
         }
     },
-    (dispatch)  => {
+    (dispatch : Dispatch<AnyAction>)  => {
         return {
             toggleTask: (id: number, isComplete: boolean) => dispatch(toggleTask(id, isComplete)),
         }

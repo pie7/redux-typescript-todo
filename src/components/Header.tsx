@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles  from "./Header.module.scss";
 
 interface Props {
     title: string;
@@ -7,7 +8,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
     return (
-        <header className="todo__title">
+        <header className={styles.title}>
             {title}
         </header>
     )
