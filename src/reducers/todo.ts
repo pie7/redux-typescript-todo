@@ -1,30 +1,62 @@
+import { TodoState, Todo, StoreState } from "../types/index";
+
 // Actions
 const ADD = 'redux-typescript/todo/ADD'
 const KEYIN_INPUT = 'redux-typescript/todo/KEYIN_INPUT'
 const DELETE = 'redux-typescript/todo/DELETE'
 const COMPLETE = 'redux-typescript/todo/COMPLETE'
 
+interface Add {
+    type: typeof ADD;
+    payload: {
+        currentInput: string
+    }
+}
+
+
+interface keyinInput {
+    type: typeof KEYIN_INPUT;
+    payload: any
+}
+
+interface Delete {
+    type: typeof DELETE;
+    payload: {
+        id: number
+    }
+}
+
+interface Complete {
+    type: typeof COMPLETE;
+    payload: {
+        id: number,
+        isComplete: boolean
+    }
+}
+
+type ActionTypes = Add | keyinInput | Delete | Complete
+
 
 // Action Creators
-export function addTask(e, currentInput) {
+export function addTask(e: React.KeyboardEvent<HTMLInputElement>, currentInput: string) {
     return e.key === 'Enter'
         ? { type: ADD, payload: { currentInput } }
         : { type: null }
 }
 
-export function keyinInput(e) {
+export function keyinInput(e: React.ChangeEvent<HTMLInputElement>): ActionTypes {
     return { type: KEYIN_INPUT, payload: { currentInput: e.target.value } }
 }
 
-export function deleteTask(id) {
+export function deleteTask(id: number) {
     return { type: DELETE, payload: { id } }
 }
 
-export function toggleTask(id, isComplete) {
+export function toggleTask(id: number, isComplete: boolean) {
     return { type: COMPLETE, payload: { id, isComplete } }
 }
 
-export const showStatus = (todos, status) => {
+export const showStatus = (todos: Array<Todo>, status: string) => {
     switch (status) {
         case 'started':
             return todos && todos.filter(todo => todo.isComplete === false)
@@ -35,8 +67,7 @@ export const showStatus = (todos, status) => {
     }
 }
 
-
-const initialState = {
+const initialState: StoreState = {
     "todos": [
         {
             "id": 1,
@@ -55,7 +86,7 @@ const initialState = {
 }
 
 // Reducer
-export default function rootReducer(state = initialState, action = {}) {
+export default function rootReducer(state = initialState, action: ActionTypes) {
     switch (action.type) {
         case ADD:
             const currentInputTodo = {
