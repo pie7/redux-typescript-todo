@@ -12,10 +12,10 @@ Todo App
 
 ### `Tools`
 
-- React
-    - React-Route
+- React-Route
 - Redux
 - TypeScript
+- CSS Module
 
 
 ### `Doc`
@@ -40,7 +40,7 @@ import TaskInput from './TaskInput'
 Name         | Type     | Default
 ------------ | -------- | -------
 currentInput | string   |
-keyinTask    | func     |
+keyinInput   | func     |
 addTask      | func     |
 
 ```js
