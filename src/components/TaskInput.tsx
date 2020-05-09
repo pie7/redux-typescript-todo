@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Dispatch, AnyAction } from 'redux';
 import { connect } from "react-redux";
 import { keyinInput, addTask } from "../reducers/todo";
 import styles from "./TaskInput.module.scss";
@@ -35,7 +36,7 @@ export default connect(
     (state: Props) => ({
         currentInput: state.currentInput
     }),
-    (dispatch: any) => ({
+    (dispatch: Dispatch<AnyAction>) => ({
         keyinInput: (e: any) => dispatch(keyinInput(e)),
         addTask: (e: any, currentInput: string) => dispatch(addTask(e, currentInput))
     })

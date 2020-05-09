@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { Dispatch, AnyAction } from 'redux';
 import { connect } from "react-redux";
 import { deleteTask } from "../reducers/todo";
 import styles from "./DeleteButton.module.scss";
@@ -29,7 +30,7 @@ DeleteButton.propTypes = {
 
 export default connect(
     null,
-    (dispatch: any) => ({
+    (dispatch: Dispatch<AnyAction>) => ({
         deleteTask: (id: number) => dispatch(deleteTask(id))
     })
 )(DeleteButton)

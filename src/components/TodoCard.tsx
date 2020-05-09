@@ -54,7 +54,7 @@ TodoCard.propTypes = {
 }
 
 export default connect(
-    (state: TodoState, ownProps: { id: number }): { title: string, isComplete: boolean} => {
+    (state: TodoState, ownProps: { id: number }): { title: string, isComplete: boolean } => {
         const todo = state.todos.filter(todo => todo.id === ownProps.id)
         const [todoItems] = todo
 
@@ -63,7 +63,7 @@ export default connect(
             isComplete: todoItems.isComplete
         }
     },
-    (dispatch : Dispatch<AnyAction>)  => {
+    (dispatch: Dispatch<AnyAction>) => {
         return {
             toggleTask: (id: number, isComplete: boolean) => dispatch(toggleTask(id, isComplete)),
         }
