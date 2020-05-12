@@ -7,7 +7,7 @@ import Header from "./Header";
 import TaskInput from "./TaskInput";
 import TodoCard from "./TodoCard";
 import Navigation from "./Navigation";
-import { StoreState, Todo, TodoState } from "../types/index";
+import { Todo } from "../types/index";
 import styles from "./TodoContainer.module.scss";
 
 interface Props {

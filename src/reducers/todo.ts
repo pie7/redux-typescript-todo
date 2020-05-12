@@ -1,4 +1,4 @@
-import { TodoState, Todo, StoreState } from "../types/index";
+import { Todo, StoreState } from "../types/index";
 
 // Actions
 const ADD = 'redux-typescript/todo/ADD'

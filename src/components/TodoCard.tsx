@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { toggleTask } from "../reducers/todo";
 import DeleteButton from "./DeleteButton";
-import { StoreState, Todo, TodoState } from "../types/index";
+import { TodoState } from "../types/index";
 import { Dispatch, AnyAction } from 'redux';
 import styles from "./TodoCard.module.scss";
 
