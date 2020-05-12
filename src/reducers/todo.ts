@@ -82,7 +82,12 @@ const initialState: StoreState = {
             "isComplete": true
         }
     ],
-    "currentInput": ""
+    "currentInput": "",
+    "tabs": [
+        { title: 'All', path: '/all' },
+        { title: 'started', path: '/started' },
+        { title: 'completed', path: '/completed' }
+    ]
 }
 
 // Reducer
