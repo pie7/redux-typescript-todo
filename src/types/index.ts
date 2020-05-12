@@ -1,3 +1,8 @@
+export interface NavLink {
+    title: string;
+    path: string;
+}
+
 export interface Todo {
     id: number;
     title: string;
@@ -14,6 +19,5 @@ export interface TodoState {
 export interface StoreState {
     todos: Todo[];
     currentInput: string;
+    tabs: NavLink[];
 }
-
-
