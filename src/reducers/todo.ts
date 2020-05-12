@@ -72,14 +72,14 @@ const initialState: StoreState = {
         {
             "id": 1,
             "title": "Going Home",
-            "context": "driving and go highway 101",
+            "context": "Drive and Go highway 101",
             "isComplete": false
         },
         {
             "id": 2,
-            "title": "Going Home2",
-            "context": "driving and go highway 001",
-            "isComplete": false
+            "title": "Coming Home",
+            "context": "I'm coming home I'm coming home",
+            "isComplete": true
         }
     ],
     "currentInput": ""
