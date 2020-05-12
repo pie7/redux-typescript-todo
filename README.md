@@ -21,6 +21,13 @@ Todo App
 ### `Doc`
 
 ```js
+import DeleteButton from './DeleteButton'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+id           | number   |
+
+```js
 import Header from './Header'
 ```
 Name         | Type     | Default
@@ -52,3 +59,10 @@ id           | number   |
 title        | string   |
 isComplete   | bool     |
 toggleTask   | func     |
+
+```js
+import TodoContainer from './TodoContainer'
+```
+Name         | Type     | Default
+------------ | -------- | -------
+todos        | array    |
