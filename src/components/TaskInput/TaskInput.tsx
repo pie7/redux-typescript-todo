@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Dispatch, AnyAction } from 'redux';
 import { connect } from "react-redux";
-import { keyinInput, addTask } from "../reducers/todo";
+import { keyinInput, addTask } from "../../reducers/todo";
 import styles from "./TaskInput.module.scss";
 
 interface Props {
     currentInput: string,
     addTask: (e: any, currentInput: string) => void,
-    keyinInput: any
+    keyinInput: (e: any) => void
 }
 
-const TaskInput: React.FC<Props> = ({ currentInput = '', keyinInput = null, addTask }) => {
+export const TaskInput: React.FC<Props> = ({ currentInput = '', keyinInput, addTask }) => {
     return (
         <div className={styles.input__wrap}>
             <input
