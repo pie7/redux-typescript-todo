@@ -16,6 +16,7 @@ Todo App
 - Redux
 - TypeScript
 - CSS Module
+- Jest/Enzyme
 
 
 ### `Doc`
