@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { showStatus } from "../reducers/todo";
-import Header from "./Header";
-import TaskInput from "./TaskInput";
-import TodoCard from "./TodoCard";
-import Navigation from "./Navigation";
-import { Todo } from "../types/index";
+import { showStatus } from "../../reducers/todo";
+import Header from "../Header/Header";
+import TaskInput from "../TaskInput/TaskInput";
+import TodoCard from "../TodoCard/TodoCard";
+import Navigation from "../Navigation/Navigation";
+import { Todo } from "../../types/index";
 import styles from "./TodoContainer.module.scss";
 
 interface Props {
     todos?: Todo[];
 }
 
-const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
+export const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
     return (
         <div className={styles.__container}>
             <Header title={'ToDoList'} />
             <Navigation />
             <TaskInput />
-            <div className={styles.__wrap}>
+            <ul className={styles.__wrap}>
                 <Switch>
                     <Route exact path="/">
                         {todos && todos.map((todo) =>
@@ -42,7 +42,7 @@ const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
                         }
                     } />
                 </Switch>
-            </div>
+            </ul>
         </div>
     )
 }
