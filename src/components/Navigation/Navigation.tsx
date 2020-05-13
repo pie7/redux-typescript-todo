@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from "./Navigation.module.scss";
-import { NavLink } from "../types";
-
-// TODO: Dynamic input use ARRAY
+import { NavLink } from "../../types";
 
 interface Props {
     tabs?: NavLink[]
 }
 
-const Navigation: React.FC<Props> = ({ tabs = [] }) => {
+export const Navigation: React.FC<Props> = ({ tabs = [] }) => {
     return (
         <div className={styles.__navigation}>
-            {tabs && tabs.map(tab =>
-                <Link to={tab.path} >
+            {tabs && tabs.map((tab, index) =>
+                <Link to={tab.path} key={`${index}_${tab.title}`}>
                     {tab.title}
                 </Link>
             )}
