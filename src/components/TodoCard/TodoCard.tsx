@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { toggleTask } from "../reducers/todo";
-import DeleteButton from "./DeleteButton";
-import { TodoState } from "../types/index";
+import { toggleTask } from "../../reducers/todo";
+import DeleteButton from "../DeleteButton/DeleteButton";
+import { TodoState } from "../../types/index";
 import { Dispatch, AnyAction } from 'redux';
 import styles from "./TodoCard.module.scss";
 
@@ -14,7 +14,7 @@ interface Props {
     toggleTask: (id: number, isComplete: boolean) => void
 }
 
-const TodoCard: React.FC<Props>= ({
+export const TodoCard: React.FC<Props>= ({
     id = 0,
     title = '',
     isComplete = false,
