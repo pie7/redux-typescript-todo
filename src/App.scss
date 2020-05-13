@@ -4,6 +4,12 @@ body {
     overflow: hidden;
 }
 
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
 .App {
   height: 100vh;
   display: flex;
