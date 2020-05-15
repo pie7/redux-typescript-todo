@@ -8,7 +8,9 @@ exports[`<DeleteButton /> matches snapshot 1`] = `
     className="icon"
     onClick={[Function]}
   >
-    ✖
+    <ForwardRef(SvgCancelWhite24Dp)
+      fill="#ff5722"
+    />
   </span>
 </div>
 `;
