@@ -18,7 +18,14 @@ export const TodoContainer: React.FC<Props> = ({ todos = [] }) => {
     return (
         <div className={styles.__container}>
             <Header title={'ToDoList'} />
-            <Navigation />
+            <Route exact path="/" >
+                <Navigation status={'all'} />
+            </Route>
+            <Route path="/:status" render={
+                ({ match }) =>
+                    <Navigation status={match.params.status} />
+            }>
+            </Route>
             <TaskInput />
             <ul className={styles.__wrap}>
                 <Switch>

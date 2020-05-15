@@ -84,7 +84,7 @@ const initialState: StoreState = {
     ],
     "currentInput": "",
     "tabs": [
-        { title: 'All', path: '/all' },
+        { title: 'all', path: '/all' },
         { title: 'started', path: '/started' },
         { title: 'completed', path: '/completed' }
     ]

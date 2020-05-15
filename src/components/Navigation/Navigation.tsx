@@ -6,16 +6,19 @@ import styles from "./Navigation.module.scss";
 import { NavLink } from "../../types";
 
 interface Props {
-    tabs?: NavLink[]
+    tabs?: NavLink[];
+    status: string;
 }
 
-export const Navigation: React.FC<Props> = ({ tabs = [] }) => {
+export const Navigation: React.FC<Props> = ({ tabs = [], status }) => {
     return (
         <div className={styles.__navigation}>
             {tabs && tabs.map((tab, index) =>
-                <Link to={tab.path} key={`${index}_${tab.title}`}>
-                    {tab.title}
-                </Link>
+                <div className={`${styles.__link} ${status === tab.title ? styles['--indicator']: ''}`} key={`${index}_${tab.title}`}>
+                    <Link to={tab.path}>
+                        {tab.title}
+                    </Link>
+                </div>
             )}
         </div>
     )
